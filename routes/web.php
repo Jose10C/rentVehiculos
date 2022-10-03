@@ -18,17 +18,32 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+/* Vista Principal */
+Route::get('/', [\App\Http\Controllers\ViewController::class, 'viewMain'])->name('welcome');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => 'auth'], function () {
 
-//Ruta Categorias
-Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
-Route::post('/categories/new', [App\Http\Controllers\CategoryController::class, 'newCategory'])->name('new.category');
-Route::put('/categories/update/{id}', [App\Http\Controllers\CategoryController::class, 'updateCategory'])->name('update.category');
-Route::delete('/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'deleteCategory'])->name('delete.category');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::post('/home/newrenta/{id_veh}', [App\Http\Controllers\ViewController::class, 'usernewRent'])->name('new.home');
+    
+    /* Ruta Categorias */
+    Route::get('/categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category');
+    Route::post('/categories/new', [App\Http\Controllers\CategoryController::class, 'newCategory'])->name('new.category');
+    Route::put('/categories/update/{id}', [App\Http\Controllers\CategoryController::class, 'updateCategory'])->name('update.category');
+    Route::delete('/categories/delete/{id}', [App\Http\Controllers\CategoryController::class, 'deleteCategory'])->name('delete.category');
 
-//Ruta Vehiculos
-Route::get('/vehicles', [App\Http\Controllers\VehicleController::class, 'index'])->name('vehicle');
-Route::post('/vehicles/new', [App\Http\Controllers\VehicleController::class, 'newVehicle'])->name('new.vehicle');
-Route::put('/vehicles/update/{id}', [App\Http\Controllers\VehicleController::class, 'updateVehicle'])->name('update.vehicle');
-Route::delete('/vehicles/delete/{id}', [App\Http\Controllers\VehicleController::class, 'deleteVehicle'])->name('delete.vehicle');
+    /* Ruta Vehiculos */
+    Route::get('/vehicles', [App\Http\Controllers\VehicleController::class, 'index'])->name('vehicle');
+    Route::post('/vehicles/new', [App\Http\Controllers\VehicleController::class, 'newVehicle'])->name('new.vehicle');
+    Route::put('/vehicles/update/{id}', [App\Http\Controllers\VehicleController::class, 'updateVehicle'])->name('update.vehicle');
+    Route::delete('/vehicles/delete/{id}', [App\Http\Controllers\VehicleController::class, 'deleteVehicle'])->name('delete.vehicle');
+
+    /* Ruta Rentas */
+    Route::get('/rents', [App\Http\Controllers\RentController::class, 'index'])->name('rent');
+    Route::post('/rents/new', [App\Http\Controllers\RentController::class, 'newRent'])->name('new.rent');
+    Route::put('/rents/update/{id}', [App\Http\Controllers\RentController::class, 'updateRent'])->name('update.rent');
+    Route::delete('/rents/delete/{id}', [App\Http\Controllers\RentController::class, 'deleteRent'])->name('delete.rent');
+
+    /* Ruta Cliets */
+    Route::get('/clients', [App\Http\Controllers\HomeController::class, 'listClientes'])->name('client');
+});

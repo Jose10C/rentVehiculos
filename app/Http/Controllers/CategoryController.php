@@ -15,7 +15,7 @@ class CategoryController extends Controller
     public function index(){
         $categoria = Category::all();
 
-        return view('categories.index', compact('categoria'));
+        return view('categories.index', ['categoria' => $categoria]);
     }
 
     public function newCategory(Request $request){
@@ -27,6 +27,7 @@ class CategoryController extends Controller
             'model.min' => 'El nombre del modelo debe tener más de 4 caracteres.'
         ];
         $this->validate($request, $rules, $messages);
+
         $categoria = new Category();
         $categoria->model = $request->input('model');
         $categoria->descripcion = $request->input('descripcion');

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre')->nullable();
             $table->string('placa')->unique();
             $table->string('marca')->nullable();
             $table->string('nro_asientos')->nullable();
@@ -22,6 +23,9 @@ return new class extends Migration
             $table->string('tipo')->nullable();
             $table->integer('recorrido')->nullable();
             $table->string('aire_acondicionado')->nullable();
+            $table->double('precio_d')->nullable();
+            $table->longText('foto_r')->nullable();
+            $table->integer('clasifica')->nullable();
             $table->boolean('status')->default(true);
             $table->foreignId('category_id')->constrained('categories');
             $table->timestamps();

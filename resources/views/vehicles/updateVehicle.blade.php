@@ -21,6 +21,11 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" value="{{$vehiculos->nombre, old('nombre')}}" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="placa">N° Placa</label>
                         <input type="text" class="form-control" name="placa" id="placa" value="{{$vehiculos->placa, old('placa')}}" required>
                     </div>
@@ -41,7 +46,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tipo">Tipo</label>
+                        <label for="tipo">Tipo (Mecánico/Automático)</label>
                         <input type="text" class="form-control" name="tipo" id="tipo" value="{{$vehiculos->tipo, old('tipo')}}">
                     </div>
 
@@ -56,13 +61,45 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="precio_d">Precio por Día (s./)</label>
+                        <input type="number" class="form-control" name="precio_d" id="precio_d" value="{{$vehiculos->precio_d, old('precio_d')}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_r">Foto Referencia (Url)</label>
+                        <input type="text" class="form-control" name="foto_r" id="foto_r" value="{{$vehiculos->foto_r, old('foto_r')}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clasifica">Clasificación</label>
+                        <select class="form-control" id="clasifica" name="clasifica">
+                            <option selected>-Seleccionar-</option>
+                            <option value="1" @if($vehiculos->clasifica == 1) selected @endif>Económico</option>
+                            <option value="2" @if($vehiculos->clasifica == 2) selected @endif>Standart</option>
+                            <option value="3" @if($vehiculos->clasifica == 2) selected @endif>Premium</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="status">Disponibilidad</label>
-                        <input type="text" class="form-control" name="status" id="status" value="{{$vehiculos->status, old('status')}}">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="flexRadioDefault1" value="1" @if($vehiculos->status == 1) checked @endif>
+                            <label class="form-check-label" for="flexRadioDefault1">Disponible</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="flexRadioDefault2" value="0" @if($vehiculos->status == 0) checked @endif>
+                            <label class="form-check-label" for="flexRadioDefault2">Ocupado</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="category_id">Categoria de Vehículo</label>
-                        <input type="number" class="form-control" name="category_id" id="category_id" value="{{$vehiculos->category_id, old('category_id')}}">
+                        <select class="form-control" id="category_id" name="category_id">
+                            <option selected>-Seleccionar-</option>
+                            @foreach ($categoria as $categoriax)
+                            <option value="{{$categoriax->id}}" <?= $categoriax->id == $vehiculos->categories->id ? 'selected' : '' ?>>{{$categoriax->model}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="modal-footer justify-content-between">

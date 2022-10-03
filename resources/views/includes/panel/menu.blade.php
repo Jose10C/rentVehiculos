@@ -18,13 +18,13 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link " href="./examples/profile.html">
+        <a class="nav-link " href="{{ url('/clients')}}"> 
             <i class="ni ni-single-02 text-yellow"></i> Clientes
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link " href="./examples/tables.html">
-            <i class="ni ni-bullet-list-67 text-red"></i> Ventas
+        <a class="nav-link " href="{{ url('/rents')}}">
+            <i class="ni ni-bullet-list-67 text-red"></i> Alquileres
         </a>
     </li>
     <li class="nav-item">
@@ -39,29 +39,12 @@
 <!-- Divider -->
 <hr class="my-3">
 <!-- Heading -->
-<h6 class="navbar-heading text-muted">Reportes</h6>
+<h6 class="navbar-heading text-muted">Ver</h6>
 <!-- Navigation -->
 <ul class="navbar-nav mb-md-3">
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="ni ni-spaceship"></i> Reservas
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="ni ni-palette"></i> Vehiculos Disponibles
-        </a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="ni ni-ui-04"></i> Rentas Por Fecha
-        </a>
-    </li>
-</ul>
-<ul class="navbar-nav">
-    <li class="nav-item active active-pro">
-        <a class="nav-link" href="./examples/upgrade.html">
-            <i class="ni ni-send text-dark"></i> Upgrade to PRO
+        <a class="nav-link" href="/">
+            <i class="ni ni-spaceship"></i> Ver Tienda
         </a>
     </li>
 </ul>

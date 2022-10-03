@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rent;
+use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $v_vehiculos = Vehicle::all();
+        return view('home', ['v_vehiculos' => $v_vehiculos]);
+    }
+
+    public function listClientes(){
+        $cliente = User::all();
+
+        return view('clients.index', ['cliente' => $cliente]);
     }
 }

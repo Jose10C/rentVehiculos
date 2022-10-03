@@ -30,7 +30,9 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col">Estado</th>
                     <th scope="col">N° Placa</th>
                     <th scope="col">Marca</th>
                     <th scope="col">N° Asientos</th>
@@ -38,7 +40,6 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Kilometraje</th>
                     <th scope="col">Aire/A</th>
-                    <th scope="col">Estado</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -46,7 +47,9 @@
                 @foreach( $vehiculo as $vehiculos)
                 <tr>
                     <th scope="row">{{$vehiculos->id}}</th>
-                    <td>{{$vehiculos->category_id}}</td>
+                    <td>{{$vehiculos->nombre}}</td>
+                    <td>{{$vehiculos->categories->model}}</td>
+                    <td>@if ($vehiculos->status == 1) <span class="badge badge-pill badge-success">Disponible</span> @else <span class="badge badge-pill badge-danger">Ocupado</span> @endif</td>
                     <td>{{$vehiculos->placa}}</td>
                     <td>{{$vehiculos->marca}}</td>
                     <td>{{$vehiculos->nro_asientos}}</td>
@@ -54,7 +57,6 @@
                     <td>{{$vehiculos->tipo}}</td>
                     <td>{{$vehiculos->recorrido}}</td>
                     <td>{{$vehiculos->aire_acondicionado}}</td>
-                    <td>{{$vehiculos->status}}</td>
                     <td>
                         <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#updateVehicle-{{$vehiculos->id}}">Editar</button>
                         <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-notification">Eliminar</button>
@@ -89,6 +91,10 @@
                 <form action="{{ url('/vehicles/new')}}" method="POST">
                     @csrf
                     <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" class="form-control" name="nombre" id="nombre" value="{{ old('nombre')}}" required>
+                    </div>
+                    <div class="form-group">
                         <label for="placa">N° Placa</label>
                         <input type="text" class="form-control" name="placa" id="placa" value="{{ old('placa')}}" required>
                     </div>
@@ -109,7 +115,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="tipo">Tipo</label>
+                        <label for="tipo">Tipo (Mecánico/Automático)</label>
                         <input type="text" class="form-control" name="tipo" id="tipo" value="{{ old('tipo')}}">
                     </div>
 
@@ -124,13 +130,45 @@
                     </div>
 
                     <div class="form-group">
+                        <label for="precio_d">Precio por Día (s./)</label>
+                        <input type="number" class="form-control" name="precio_d" id="precio_d" value="{{ old('precio_d')}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_r">Foto Referencia (Url)</label>
+                        <input type="text" class="form-control" name="foto_r" id="foto_r" value="{{ old('foto_r')}}">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clasifica">Clasificación</label>
+                        <select class="form-control" id="clasifica" name="clasifica">
+                            <option selected>-Seleccionar-</option>
+                            <option value="1">Económico</option>
+                            <option value="2">Standart</option>
+                            <option value="3">Premium</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
                         <label for="status">Disponibilidad</label>
-                        <input type="text" class="form-control" name="status" id="status" value="{{ old('status')}}">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="flexRadioDefault1" value="1">
+                            <label class="form-check-label" for="flexRadioDefault1">Disponible</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="status" id="flexRadioDefault2" value="0">
+                            <label class="form-check-label" for="flexRadioDefault2">Ocupado</label>
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="category_id">Categoria de Vehículo</label>
-                        <input type="number" class="form-control" name="category_id" id="category_id" value="{{ old('category_id')}}">
+                        <select class="form-control" id="category_id" name="category_id">
+                            <option selected>-Seleccionar-</option>
+                            @foreach ($categoria as $categoriax)
+                            <option value="{{$categoriax->id}}">{{$categoriax->model}}</option>
+                            @endforeach
+                        </select>
                     </div>
 
                     <div class="modal-footer justify-content-between">
@@ -155,8 +193,8 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="py-3 text-center">
-                    <i class="ni ni-bell-55 ni-3x"></i>
+                <div class="py-4 text-center">
+                    <i class="ni ni-notification-70 ni-5x"></i>
                     <h4 class="heading mt-4">¿Está seguro que quiere eliminar este Vehículo {{$vehiculos->placa}}?</h4>
                     <p>*Adevertencia: Una vez eliminado el registro no se podrá recuperar.</p>
                 </div>

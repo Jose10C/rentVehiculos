@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,10 @@ class VehicleController extends Controller
     }
 
     public function index(){
-        $vehiculo = Vehicle::get()->all();
+        $categoria = Category::all();
+        $vehiculo = Vehicle::all();
 
-        return view('vehicles.index', compact('vehiculo'));
+        return view('vehicles.index', ['categoria' => $categoria, 'vehiculo' => $vehiculo]);
     }
 
     public function newVehicle(Request $request){
@@ -29,6 +31,7 @@ class VehicleController extends Controller
         $this->validate($request, $rules, $messages);
 
         $vehiculo = new Vehicle();
+        $vehiculo->nombre = $request->input('nombre');
         $vehiculo->placa = $request->input('placa');
         $vehiculo->marca = $request->input('marca');
         $vehiculo->nro_asientos = $request->input('nro_asientos');
@@ -36,6 +39,9 @@ class VehicleController extends Controller
         $vehiculo->tipo = $request->input('tipo');
         $vehiculo->recorrido = $request->input('recorrido');
         $vehiculo->aire_acondicionado = $request->input('aire_acondicionado');
+        $vehiculo->precio_d = $request->input('precio_d');
+        $vehiculo->foto_r = $request->input('foto_r');
+        $vehiculo->clasifica = $request->input('clasifica');
         $vehiculo->status = $request->input('status');
         $vehiculo->category_id = $request->input('category_id');
         $vehiculo->save();
@@ -54,6 +60,7 @@ class VehicleController extends Controller
         ];
         $this->validate($request, $rules, $messages);
 
+        $id->nombre = $request->input('nombre');
         $id->placa = $request->input('placa');
         $id->marca = $request->input('marca');
         $id->nro_asientos = $request->input('nro_asientos');
@@ -61,6 +68,9 @@ class VehicleController extends Controller
         $id->tipo = $request->input('tipo');
         $id->recorrido = $request->input('recorrido');
         $id->aire_acondicionado = $request->input('aire_acondicionado');
+        $id->precio_d = $request->input('precio_d');
+        $id->foto_r = $request->input('foto_r');
+        $id->clasifica = $request->input('clasifica');
         $id->status = $request->input('status');
         $id->category_id = $request->input('category_id');
         $id->save();

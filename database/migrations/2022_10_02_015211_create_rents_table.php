@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('a_fin');
             $table->double('a_precio');
             $table->boolean('status')->default(true);
-            $table->foreignId('clients_id')->constrained('clients');
             $table->foreignId('vehicles_id')->constrained('vehicles');
             $table->foreignId('users_id')->constrained('users');
             $table->timestamps();

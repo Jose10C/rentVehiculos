@@ -4,291 +4,122 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-md-12 mb-4">
+<div class="row mt-12">
+    <div class="col-md-12">
         <div class="card">
-            <div class="card-header">{{ __('Dashboard') }}</div>
-
+            <div class="card-header">{{ __('Vehiculos') }}</div>
             <div class="card-body">
-                @if (session('status'))
-                <div class="alert alert-success" role="alert">
-                    {{ session('status') }}
-                </div>
-                @endif
-
-                {{ __('You are logged in!') }}
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-8 mb-5 mb-xl-0">
-        <div class="card bg-gradient-default shadow">
-            <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h6 class="text-uppercase text-light ls-1 mb-1">Overview</h6>
-                        <h2 class="text-white mb-0">Sales value</h2>
+                <!-- Notifications -->
+                <div class="card-body">
+                    @if(session('notificacion'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('notificacion')}}
                     </div>
-                    <div class="col">
-                        <ul class="nav nav-pills justify-content-end">
-                            <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                                <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
-                                    <span class="d-none d-md-block">Month</span>
-                                    <span class="d-md-none">M</span>
-                                </a>
-                            </li>
-                            <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
-                                <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
-                                    <span class="d-none d-md-block">Week</span>
-                                    <span class="d-md-none">W</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    @endif
                 </div>
-            </div>
-            <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                    <!-- Chart wrapper -->
-                    <canvas id="chart-sales" class="chart-canvas"></canvas>
+                <!-- nav -->
+                <div class="nav-wrapper">
+                    <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-economicos-tab" data-toggle="tab" href="#tabs-icons-economicos" role="tab" aria-controls="tabs-icons-economicos" aria-selected="true"><i class="ni ni-cloud-upload-96 mr-2"></i>Económico</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-standard-tab" data-toggle="tab" href="#tabs-icons-standard" role="tab" aria-controls="tabs-icons-standard" aria-selected="false"><i class="ni ni-bell-55 mr-2"></i>Standard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-premium-tab" data-toggle="tab" href="#tabs-icons-premium" role="tab" aria-controls="tabs-icons-premium" aria-selected="false"><i class="ni ni-calendar-grid-58 mr-2"></i>Premium</a>
+                        </li>
+                    </ul>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-4">
-        <div class="card shadow">
-            <div class="card-header bg-transparent">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h6 class="text-uppercase text-muted ls-1 mb-1">Performance</h6>
-                        <h2 class="mb-0">Total orders</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body">
-                <!-- Chart -->
-                <div class="chart">
-                    <canvas id="chart-orders" class="chart-canvas"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row mt-5">
-    <div class="col-xl-8 mb-5 mb-xl-0">
-        <div class="card shadow">
-            <div class="card-header border-0">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h3 class="mb-0">Page visits</h3>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">See all</a>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <!-- Projects table -->
-                <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Page name</th>
-                            <th scope="col">Visitors</th>
-                            <th scope="col">Unique users</th>
-                            <th scope="col">Bounce rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                /argon/
-                            </th>
-                            <td>
-                                4,569
-                            </td>
-                            <td>
-                                340
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/index.html
-                            </th>
-                            <td>
-                                3,985
-                            </td>
-                            <td>
-                                319
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/charts.html
-                            </th>
-                            <td>
-                                3,513
-                            </td>
-                            <td>
-                                294
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/tables.html
-                            </th>
-                            <td>
-                                2,050
-                            </td>
-                            <td>
-                                147
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                /argon/profile.html
-                            </th>
-                            <td>
-                                1,795
-                            </td>
-                            <td>
-                                190
-                            </td>
-                            <td>
-                                <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-xl-4">
-        <div class="card shadow">
-            <div class="card-header border-0">
-                <div class="row align-items-center">
-                    <div class="col">
-                        <h3 class="mb-0">Social traffic</h3>
-                    </div>
-                    <div class="col text-right">
-                        <a href="#!" class="btn btn-sm btn-primary">See all</a>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <!-- Projects table -->
-                <table class="table align-items-center table-flush">
-                    <thead class="thead-light">
-                        <tr>
-                            <th scope="col">Referral</th>
-                            <th scope="col">Visitors</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">
-                                Facebook
-                            </th>
-                            <td>
-                                1,480
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">60%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                <!-- content nav -->
+                <div class="card shadow">
+                    <div class="card-body">
+                        <div class="tab-content" id="myTabContent">
+                            <!-- inicio de economico -->
+                            <div class="tab-pane fade show active" id="tabs-icons-economicos" role="tabpanel" aria-labelledby="tabs-icons-economicos-tab">
+                                <div class="row">
+                                    <!-- card 1 -->
+                                    @foreach ($v_vehiculos as $vehiculo)
+                                    @if ($vehiculo->clasifica == 1 && $vehiculo->status == 1)
+                                    <div class="col-sm-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
+                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
+                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo->anio}} - {{$vehiculo->marca}}</h5>
+                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo->nro_asientos}}</h5>
+                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo->clasifica == 1) Económico @elseif ($vehiculo->clasifica == 2) Standart @else Premium @endif</h5>
+                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo->recorrido}} km.</h5>
+                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
+                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
+                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
+                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                            </div>
                                         </div>
                                     </div>
+                                    @include('usernewRent')
+                                    @endif
+                                    @endforeach
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                Facebook
-                            </th>
-                            <td>
-                                5,480
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">70%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                            </div>
+                            <!-- inicio de standard -->
+                            <div class="tab-pane fade" id="tabs-icons-standard" role="tabpanel" aria-labelledby="tabs-icons-standard-tab">
+                                <div class="row">
+                                    <!-- card 1 -->
+                                    @foreach ($v_vehiculos as $vehiculo2)
+                                    @if ($vehiculo2->clasifica == 2 && $vehiculo2->status == 1)
+                                    <div class="col-sm-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="{{$vehiculo2->foto_r}}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo2->nombre}}</h5>
+                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo2->categories->model}}</span></h5>
+                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo2->anio}} - {{$vehiculo2->marca}}</h5>
+                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo2->nro_asientos}}</h5>
+                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo2->clasifica == 1) Económico @elseif ($vehiculo2->clasifica == 2) Standart @else Premium @endif</h5>
+                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo2->recorrido}} km.</h5>
+                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo2->aire_acondicionado}}</h5>
+                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo2->tipo}}</h5>
+                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo2->precio_d}} (x días)</h5>
+                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{$vehiculo2->id}}-1">Reservar Ahora</button></center>
+                                            </div>
                                         </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                Google
-                            </th>
-                            <td>
-                                4,807
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">80%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                            </div>
+                            <!-- inicio de premium -->
+                            <div class="tab-pane fade" id="tabs-icons-premium" role="tabpanel" aria-labelledby="tabs-icons-premium-tab">
+                                <div class="row">
+                                    <!-- card 1 -->
+                                    @foreach ($v_vehiculos as $vehiculo3)
+                                    @if ($vehiculo3->clasifica == 3 && $vehiculo3->status == 1)
+                                    <div class="col-sm-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <img class="card-img-top" src="{{$vehiculo3->foto_r}}" alt="Card image cap">
+                                            <div class="card-body">
+                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo3->nombre}}</h5>
+                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo3->categories->model}}</span></h5>
+                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo3->anio}} - {{$vehiculo3->marca}}</h5>
+                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo3->nro_asientos}}</h5>
+                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo3->clasifica == 1) Económico @elseif ($vehiculo3->clasifica == 2) Standart @else Premium @endif</h5>
+                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo3->recorrido}} km.</h5>
+                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo3->aire_acondicionado}}</h5>
+                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo3->tipo}}</h5>
+                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo3->precio_d}} (x días)</h5>
+                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{$vehiculo3->id}}-1">Reservar Ahora</button></center>
+                                            </div>
                                         </div>
                                     </div>
+                                    @endif
+                                    @endforeach
                                 </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                Instagram
-                            </th>
-                            <td>
-                                3,678
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">75%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                twitter
-                            </th>
-                            <td>
-                                2,645
-                            </td>
-                            <td>
-                                <div class="d-flex align-items-center">
-                                    <span class="mr-2">30%</span>
-                                    <div>
-                                        <div class="progress">
-                                            <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
