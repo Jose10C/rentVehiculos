@@ -19,6 +19,27 @@
                 @endif
                 <form action="{{ url('/home/newrenta',$vehiculo->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <strong>Antes de continuar, Actualiza sus Datos</strong>
+                    <!-- Actualizar datos u_user -->
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" name="name" id="name" value="{{auth()->user()->name}}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">N° DNI</label>
+                        <input type="text" class="form-control" name="dni" id="dni" maxlength="8" value="{{auth()->user()->dni}}" require>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" class="form-control" name="telefono" id="telefono" maxlength="9" value="{{auth()->user()->telefono}}" require>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" value="{{auth()->user()->direccion}}" onselect="calcularFecha();" require>
+
+                    </div>
+                    <hr>
+                    <!-- Realizar la Reserva -->
                     <div class="form-group">
                         <label for="a_inicio">Fecha Inicial</label>
                         <input type="date" class="form-control" name="a_inicio" id="a_inicio" require>
@@ -31,7 +52,7 @@
 
                     <div class="form-group">
                         <label for="a_precio">Precio S/. (x día)</label>
-                        <input type="number" class="form-control" name="a_precio" id="a_precio" value="{{$vehiculo->precio_d}}" disabled>
+                        <input type="text" class="form-control" name="a_precio" id="a_precio" value="{{$vehiculo->precio_d}}" disabled>
                     </div>
 
                     <div class="modal-footer justify-content-between">

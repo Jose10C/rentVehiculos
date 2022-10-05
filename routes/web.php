@@ -23,6 +23,7 @@ Route::get('/', [\App\Http\Controllers\ViewController::class, 'viewMain'])->name
 
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'inicial'])->name('dashboard');
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::post('/home/newrenta/{id_veh}', [App\Http\Controllers\ViewController::class, 'usernewRent'])->name('new.home');
     
@@ -41,9 +42,13 @@ Route::group(['middleware' => 'auth'], function () {
     /* Ruta Rentas */
     Route::get('/rents', [App\Http\Controllers\RentController::class, 'index'])->name('rent');
     Route::post('/rents/new', [App\Http\Controllers\RentController::class, 'newRent'])->name('new.rent');
-    Route::put('/rents/update/{id}', [App\Http\Controllers\RentController::class, 'updateRent'])->name('update.rent');
+    Route::put('/rents/update/{renta}', [App\Http\Controllers\RentController::class, 'updateRent'])->name('update.rent');
     Route::delete('/rents/delete/{id}', [App\Http\Controllers\RentController::class, 'deleteRent'])->name('delete.rent');
 
     /* Ruta Cliets */
     Route::get('/clients', [App\Http\Controllers\HomeController::class, 'listClientes'])->name('client');
+    Route::delete('/clients/delete/{id}', [App\Http\Controllers\HomeController::class, 'deleteClientes'])->name('delete.client');
+
+    /* pedidos */
+    Route::get('/pedidos', [App\Http\Controllers\HomeController::class, 'viewPedidos'])->name('view');
 });

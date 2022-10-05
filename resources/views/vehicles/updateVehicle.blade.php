@@ -73,10 +73,10 @@
                     <div class="form-group">
                         <label for="clasifica">Clasificación</label>
                         <select class="form-control" id="clasifica" name="clasifica">
-                            <option selected>-Seleccionar-</option>
+                            <option>-Seleccionar-</option>
                             <option value="1" @if($vehiculos->clasifica == 1) selected @endif>Económico</option>
                             <option value="2" @if($vehiculos->clasifica == 2) selected @endif>Standart</option>
-                            <option value="3" @if($vehiculos->clasifica == 2) selected @endif>Premium</option>
+                            <option value="3" @if($vehiculos->clasifica == 3) selected @endif>Premium</option>
                         </select>
                     </div>
 

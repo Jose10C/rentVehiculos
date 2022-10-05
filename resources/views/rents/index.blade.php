@@ -9,11 +9,11 @@
             <div class="col">
                 <h3 class="mb-0">Alquiler</h3>
             </div>
-            <div class="col text-right">
+            <!-- <div class="col text-right">
                 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#newRent">
                     <i class="fas fa-plus"></i> Nuevo Alquiler
                 </button>
-            </div>
+            </div> -->
         </div>
     </div>
     <!-- Notifications -->
@@ -34,9 +34,9 @@
                     <th scope="col">Usuario</th>
                     <th scope="col">F. Inicial</th>
                     <th scope="col">F. Fin</th>
-                    <th scope="col">Situacion</th>
-                    <th scope="col">F. Renta</th>
+                    <th scope="col">Estado Actual</th>
                     <th scope="col">Precio s/.</th>
+                    <th scope="col">F. Renta</th>
                     <th scope="col">Razón</th>
                     <th scope="col">Acciones</th>
                 </tr>
@@ -49,7 +49,7 @@
                     <td>{{$alquilado->usuarios->name}}</td>
                     <td>{{$alquilado->a_inicio}}</td>
                     <td>{{$alquilado->a_fin}}</td>
-                    <td>@if ($alquilado->status == 1) <span class="badge badge-pill badge-success">Disponible</span> @else <span class="badge badge-pill badge-danger">Ocupado</span> @endif</td>
+                    <td>@if ($alquilado->status == 1) <span class="badge badge-pill badge-success">En Ejecución</span> @else <span class="badge badge-pill badge-danger">Ejecutado</span> @endif</td>
                     <td>{{$alquilado->a_precio}}</td>
                     <td>{{$alquilado->updated_at}}</td>
                     <td>Para uso particular</td>

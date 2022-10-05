@@ -38,7 +38,7 @@
                                     @if ($vehiculo->clasifica == 1 && $vehiculo->status == 1)
                                     <div class="col-sm-4">
                                         <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="Card image cap">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                             <div class="card-body">
                                                 <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
                                                 <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
@@ -49,7 +49,8 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{ auth()->user()->id}}">Reservar Ahora</button></center>
+                                               <!--  <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-">Reservar Ahora</button></center> -->
+                                                <a href="{{ url('login')}}"class="btn btn-success">Reservar Ahora</a>
                                             </div>
                                         </div>
                                     </div>
@@ -65,7 +66,7 @@
                                     @if ($vehiculo->clasifica == 2 && $vehiculo->status == 1)
                                     <div class="col-sm-4">
                                         <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="Card image cap">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                             <div class="card-body">
                                                 <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
                                                 <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
@@ -76,7 +77,8 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{ auth()->user()->id}}">Reservar Ahora</button></center>
+                                                <!-- <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent">Reservar Ahora</button></center> -->
+                                                <a href="{{ url('login')}}"class="btn btn-success">Reservar Ahora</a>
                                             </div>
                                         </div>
                                     </div>
@@ -92,7 +94,7 @@
                                     @if ($vehiculo->clasifica == 3 && $vehiculo->status == 1)
                                     <div class="col-sm-4">
                                         <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="Card image cap">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                             <div class="card-body">
                                                 <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
                                                 <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
@@ -103,7 +105,8 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{ auth()->user()->id}}">Reservar Ahora</button></center>
+                                                <!-- <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRen">Reservar Ahora</button></center> -->
+                                                <a href="{{ url('login')}}"class="btn btn-success">Reservar Ahora</a>
                                             </div>
                                         </div>
                                     </div>

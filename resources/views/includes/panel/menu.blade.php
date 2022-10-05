@@ -7,6 +7,8 @@
             <i class="ni ni-tv-2 text-primary"></i> Dashboard
         </a>
     </li>
+    @if (auth()->user()->id==1 || auth()->user()->id==2 || auth()->user()->id==3 || auth()->user()->id==4 || auth()->user()->id==5 || auth()->user()->id==6)
+    
     <li class="nav-item">
         <a class="nav-link " href="{{ url('/categories')}}">
             <i class="ni ni-planet text-blue"></i> Cateogorias
@@ -25,6 +27,12 @@
     <li class="nav-item">
         <a class="nav-link " href="{{ url('/rents')}}">
             <i class="ni ni-bullet-list-67 text-red"></i> Alquileres
+        </a>
+    </li>
+    @endif
+    <li class="nav-item">
+        <a class="nav-link " href="{{ url('/pedidos')}}">
+            <i class="ni ni-bullet-list-67 text-red"></i> Mis Pedidos
         </a>
     </li>
     <li class="nav-item">

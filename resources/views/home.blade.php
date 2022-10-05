@@ -15,6 +15,22 @@
                     <div class="alert alert-success" role="alert">
                         {{ session('notificacion')}}
                     </div>
+                    <div class="alert alert-success" role="alert">
+                        <div>
+                            <h5 style="text-align: center;">Detalle de la Renta</h5>
+                            <hr>
+                        </div>
+                        <h5>N° de Boleta B000{{$viewrentado->id}}-01</h5>
+                        <h4>N° Placa del Vehiculo: {{$viewrentado->vehicles->placa}}</h4>
+                        <h4>Nombres: {{$viewrentado->usuarios->name}} DNI: {{$viewrentado->usuarios->dni}}</h4>
+                        <h4>Direccion: {{$viewrentado->usuarios->direccion}} Telefono: {{$viewrentado->usuarios->telefono}}</h4>
+                        <h4>Fecha Inicio de Renta: {{$viewrentado->a_inicio}}</h4>
+                        <h4>Fecha Final de Renta: {{$viewrentado->a_fin}}</h4>
+                        <h4>Estado actual del Pedido: @if ($viewrentado->status == 1) <span class="badge badge-pill badge-default">Procesando...</span> @else <span class="badge badge-pill badge-danger">Ejecutado</span> @endif</h4>
+                        <h4>Precio Total a Pagar: S/. {{$viewrentado->a_precio}}</h4>
+                        <h4>Fecha: {{$viewrentado->updated_at}}</h4>
+                        <span>Nota: Debe tomar esta imagen como constancia de su pedido y acérquese a nuestro local.</span>
+                    </div>
                     @endif
                 </div>
                 <!-- nav -->
@@ -43,7 +59,7 @@
                                     @if ($vehiculo->clasifica == 1 && $vehiculo->status == 1)
                                     <div class="col-sm-4">
                                         <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="Card image cap">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                             <div class="card-body">
                                                 <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
                                                 <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
@@ -67,25 +83,26 @@
                             <div class="tab-pane fade" id="tabs-icons-standard" role="tabpanel" aria-labelledby="tabs-icons-standard-tab">
                                 <div class="row">
                                     <!-- card 1 -->
-                                    @foreach ($v_vehiculos as $vehiculo2)
-                                    @if ($vehiculo2->clasifica == 2 && $vehiculo2->status == 1)
+                                    @foreach ($v_vehiculos as $vehiculo)
+                                    @if ($vehiculo->clasifica == 2 && $vehiculo->status == 1)
                                     <div class="col-sm-4">
                                         <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$vehiculo2->foto_r}}" alt="Card image cap">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                             <div class="card-body">
-                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo2->nombre}}</h5>
-                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo2->categories->model}}</span></h5>
-                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo2->anio}} - {{$vehiculo2->marca}}</h5>
-                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo2->nro_asientos}}</h5>
-                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo2->clasifica == 1) Económico @elseif ($vehiculo2->clasifica == 2) Standart @else Premium @endif</h5>
-                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo2->recorrido}} km.</h5>
-                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo2->aire_acondicionado}}</h5>
-                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo2->tipo}}</h5>
-                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo2->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{$vehiculo2->id}}-1">Reservar Ahora</button></center>
+                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
+                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
+                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo->anio}} - {{$vehiculo->marca}}</h5>
+                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo->nro_asientos}}</h5>
+                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo->clasifica == 1) Económico @elseif ($vehiculo->clasifica == 2) Standart @else Premium @endif</h5>
+                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo->recorrido}} km.</h5>
+                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
+                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
+                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
+                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
                                             </div>
                                         </div>
                                     </div>
+                                    @include('usernewRent')
                                     @endif
                                     @endforeach
                                 </div>
@@ -94,25 +111,26 @@
                             <div class="tab-pane fade" id="tabs-icons-premium" role="tabpanel" aria-labelledby="tabs-icons-premium-tab">
                                 <div class="row">
                                     <!-- card 1 -->
-                                    @foreach ($v_vehiculos as $vehiculo3)
-                                    @if ($vehiculo3->clasifica == 3 && $vehiculo3->status == 1)
+                                    @foreach ($v_vehiculos as $vehiculo)
+                                    @if ($vehiculo->clasifica == 3 && $vehiculo->status == 1)
                                     <div class="col-sm-4">
                                         <div class="card" style="width: 18rem;">
-                                            <img class="card-img-top" src="{{$vehiculo3->foto_r}}" alt="Card image cap">
+                                            <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                             <div class="card-body">
-                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo3->nombre}}</h5>
-                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo3->categories->model}}</span></h5>
-                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo3->anio}} - {{$vehiculo3->marca}}</h5>
-                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo3->nro_asientos}}</h5>
-                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo3->clasifica == 1) Económico @elseif ($vehiculo3->clasifica == 2) Standart @else Premium @endif</h5>
-                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo3->recorrido}} km.</h5>
-                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo3->aire_acondicionado}}</h5>
-                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo3->tipo}}</h5>
-                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo3->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-{{$vehiculo3->id}}-1">Reservar Ahora</button></center>
+                                                <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
+                                                <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
+                                                <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo->anio}} - {{$vehiculo->marca}}</h5>
+                                                <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo->nro_asientos}}</h5>
+                                                <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo->clasifica == 1) Económico @elseif ($vehiculo->clasifica == 2) Standart @else Premium @endif</h5>
+                                                <h5><i class="ni ni-user-run"></i> Kilometros Recorridos: {{$vehiculo->recorrido}} km.</h5>
+                                                <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
+                                                <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
+                                                <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
+                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
                                             </div>
                                         </div>
                                     </div>
+                                    @include('usernewRent')
                                     @endif
                                     @endforeach
                                 </div>

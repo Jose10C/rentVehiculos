@@ -48,10 +48,11 @@
                     <td>{{$clientes->telefono}}</td>
                     <td>{{$clientes->direccion}}</td>
                     <td>
-                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#updateCategory">Editar</button>
-                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-notification">Eliminar</button>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#">Editar</button>
+                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-notifica-{{$clientes->id}}">Eliminar</button>
                     </td>
                 </tr>
+                @include('clients.modal-notifica')
                 @endforeach
             </tbody>
         </table>
