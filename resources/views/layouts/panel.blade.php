@@ -9,7 +9,7 @@
   </title>
   <!-- Favicon -->
   <link href="{{ secure_asset('img/brand/favicon.png')}}" rel="icon" type="image/png" alt="cabexera">
-  
+
   <!-- Icons -->
   <link href="{{ secure_asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
   <link href="{{ secure_asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
@@ -18,6 +18,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- CSS Files -->
   <link href="{{ secure_asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808046403129402" crossorigin="anonymous"></script>
 </head>
 
 <body class="">
@@ -118,9 +119,9 @@
 
     </div>
     <div class="container-fluid mt--7">
-        @yield('content')
+      @yield('content')
       <!-- Footer -->
-        @include('includes.panel.footer')
+      @include('includes.panel.footer')
     </div>
   </div>
   <!--   Core   -->

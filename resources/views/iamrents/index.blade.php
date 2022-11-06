@@ -1,17 +1,17 @@
 @extends('layouts.panel')
 
-@section('title','Vehiculos')
+@section('title','Yo Rentador')
 
 @section('content')
 <div class="card shadow">
     <div class="card-header border-0">
         <div class="row align-items-center">
             <div class="col">
-                <h3 class="mb-0">Vehículos</h3>
+                <h3 class="mb-0">Yo Rentador</h3>
             </div>
             <div class="col text-right">
                 <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#newVehicle">
-                    <i class="fas fa-plus"></i> Nuevo Vehiculo
+                    <i class="fas fa-plus"></i> Agregar Vehiculo
                 </button>
             </div>
         </div>
@@ -40,11 +40,10 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Kilometraje</th>
                     <th scope="col">Aire/A</th>
-                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach( $vehiculo as $vehiculos)
+                @foreach( $v_vehiculos as $vehiculos)
                 <tr>
                     <th scope="row">{{$vehiculos->id}}</th>
                     <td>{{$vehiculos->nombre}}</td>
@@ -57,10 +56,6 @@
                     <td>{{$vehiculos->tipo}}</td>
                     <td>{{$vehiculos->recorrido}}</td>
                     <td>{{$vehiculos->aire_acondicionado}}</td>
-                    <td>
-                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#updateVehicle-{{$vehiculos->id}}">Editar</button>
-                        <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-notification">Eliminar</button>
-                    </td>
                 </tr>
                 @include('vehicles.updateVehicle')
                 @endforeach
@@ -88,8 +83,28 @@
                 </div>
                 @endforeach
                 @endif
-                <form action="{{ url('/vehicles/new')}}" method="POST">
+                <form action="{{ url('/iamrents')}}" method="POST">
                     @csrf
+                    <!-- Actualizar Datos -->
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" class="form-control" name="name" id="name" value="{{auth()->user()->name}}" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">N° DNI</label>
+                        <input type="text" class="form-control" name="dni" id="dni" maxlength="8" value="{{auth()->user()->dni}}" require>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" class="form-control" name="telefono" id="telefono" maxlength="9" value="{{auth()->user()->telefono}}" require>
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" class="form-control" name="direccion" id="direccion" value="{{auth()->user()->direccion}}" require>
+
+                    </div>
+                    <hr>
+                    <!-- Agregar Vehiculo -->
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" class="form-control" name="nombre" id="nombre" value="{{ old('nombre')}}" required>
@@ -137,28 +152,6 @@
                     <div class="form-group">
                         <label for="foto_r">Foto Referencia (Url)</label>
                         <input type="text" class="form-control" name="foto_r" id="foto_r" value="{{ old('foto_r')}}">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="clasifica">Clasificación</label>
-                        <select class="form-control" id="clasifica" name="clasifica">
-                            <option selected>-Seleccionar-</option>
-                            <option value="1">Económico</option>
-                            <option value="2">Standart</option>
-                            <option value="3">Premium</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="status">Disponibilidad</label>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="flexRadioDefault1" value="1">
-                            <label class="form-check-label" for="flexRadioDefault1">Disponible</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="status" id="flexRadioDefault2" value="0">
-                            <label class="form-check-label" for="flexRadioDefault2">Ocupado</label>
-                        </div>
                     </div>
 
                     <div class="form-group">

@@ -36,6 +36,11 @@
         </a>
     </li>
     <li class="nav-item">
+        <a class="nav-link " href="{{ url('/iamrents')}}">
+            <i class="ni ni-bullet-list-67 text-red"></i> Yo Rentador
+        </a>
+    </li>
+    <li class="nav-item">
         <a class="nav-link" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('formLogout').submit();">
             <i class="fas fa-sing-in-alt"></i> Cerrar Sessióm
         </a>

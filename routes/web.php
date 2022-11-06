@@ -51,4 +51,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     /* pedidos */
     Route::get('/pedidos', [App\Http\Controllers\HomeController::class, 'viewPedidos'])->name('view');
+
+    /* promocionar para rentar */
+    Route::get('/iamrents', [\App\Http\Controllers\ViewController::class, 'viewiamRent']);
+    Route::post('/iamrents/new', [\App\Http\Controllers\ViewController::class, 'iamRent']);
 });
