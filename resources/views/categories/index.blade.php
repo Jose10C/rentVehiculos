@@ -30,7 +30,7 @@
             <thead class="thead-light">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Modelo</th>
+                    <th scope="col">Categoria</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Última Actualización</th>
                     <th scope="col">Acciones</th>
@@ -77,12 +77,12 @@
                 <form action="{{ url('/categories/new')}}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="model">Modelo</label>
+                        <label for="model">Categoria</label>
                         <input type="text" class="form-control" name="model" id="model" value="{{ old('model')}}" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="descripcion">Categoria</label>
+                        <label for="descripcion">Descripción</label>
                         <input type="text" class="form-control" name="descripcion" id="descripcion" value="{{ old('descripcion')}}">
                     </div>
 
