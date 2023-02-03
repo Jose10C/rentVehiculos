@@ -110,7 +110,7 @@
                                         <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                         <div class="card-body">
                                             <div class="text-center">
-                                                <span class="badge badge-pill badge-danger text-default text-h1">{{$vehiculo->nombre}}</span>
+                                                <span class="badge badge-pill badge-danger text-white text-h1">{{$vehiculo->nombre}}</span>
                                             </div>
                                             <div class="text-default text-center">
                                                 <h2>Oferta!! s/. {{$vehiculo->precio_d}}.00</h2>
@@ -141,8 +141,12 @@
                                     <div class="card" style="width: 18rem; background-color: #2dce891f;">
                                         <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                         <div class="card-body">
-                                            <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
-                                            <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
+                                            <div class="text-center">
+                                                <span class="badge badge-pill badge-danger text-white text-h1">{{$vehiculo->nombre}}</span>
+                                            </div>
+                                            <div class="text-default text-center">
+                                                <h2>Oferta!! s/. {{$vehiculo->precio_d}}.00</h2>
+                                            </div>
                                             <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo->anio}} - {{$vehiculo->marca}}</h5>
                                             <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo->nro_asientos}}</h5>
                                             <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo->clasifica == 1) Económico @elseif ($vehiculo->clasifica == 2) Standart @else Premium @endif</h5>
@@ -162,6 +166,7 @@
                     </div>
                 </div>
             </div>
+            <!-- fin -->
         </div>
     </div>
 </div>
@@ -240,5 +245,7 @@
         </div>
     </div>
 </div>
+
+
 
 @endsection
