@@ -167,6 +167,22 @@
                 </div>
             </div>
             <!-- fin -->
+
+            <div class="progress-wrapper">
+                <div class="progress-info">
+                    <div class="progress-label">
+                        <span>Progreso</span>
+                    </div>
+                    <div class="progress-percentage">
+                        <span>40%</span>
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
