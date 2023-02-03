@@ -8,14 +8,14 @@
     {{ config('app.name')}} | @yield('title')
   </title>
   <!-- Favicon -->
-  <link href="{{ secure_asset('img/brand/favicon.png')}}" rel="icon" type="image/png">
+  <link href="{{ asset('img/brand/favicon.png')}}" rel="icon" type="image/png">
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- Icons -->
-  <link href="{{ secure_asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
-  <link href="{{ secure_asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
+  <link href="{{ asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
+  <link href="{{ asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
   <!-- CSS Files -->
-  <link href="{{ secure_asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet" />
+  <link href="{{ asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet" />
 </head>
 
 <body class="bg-default">
@@ -24,7 +24,7 @@
     <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
       <div class="container px-4">
         <a class="navbar-brand" href="{{ url('/')}}">
-          <img src="{{ secure_asset('img/brand/white.png')}}" />
+          <img src="{{ asset('img/brand/white.png')}}" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@
             <div class="row">
               <div class="col-6 collapse-brand">
                 <a href="../index.html">
-                  <img src="{{ secure_asset('img/brand/blue.png')}}">
+                  <img src="{{ asset('img/brand/blue.png')}}">
                 </a>
               </div>
               <div class="col-6 collapse-close">
@@ -106,12 +106,15 @@
       </div>
     </footer>
   </div>
+  <!-- jquery -->
+  <script src="{{ asset('jquery-3.6.1.min.js')}}"></script>
+
   <!--   Core   -->
-  <script src="{{ secure_asset('js/plugins/jquery/dist/jquery.min.js')}}"></script>
-  <script src="{{ secure_asset('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('js/plugins/jquery/dist/jquery.min.js')}}"></script>
+  <script src="{{ asset('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <!--   Optional JS   -->
   <!--   Argon JS   -->
-  <script src="{{ secure_asset('js/argon-dashboard.min.js?v=1.1.2')}}"></script>
+  <script src="{{ asset('js/argon-dashboard.min.js?v=1.1.2')}}"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&

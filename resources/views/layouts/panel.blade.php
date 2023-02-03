@@ -8,16 +8,16 @@
     {{ config('app.name')}}
   </title>
   <!-- Favicon -->
-  <link href="{{ secure_asset('img/brand/favicon.png')}}" rel="icon" type="image/png" alt="cabexera">
+  <link href="{{ asset('img/brand/favicon.png')}}" rel="icon" type="image/png" alt="cabexera">
 
   <!-- Icons -->
-  <link href="{{ secure_asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
-  <link href="{{ secure_asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
+  <link href="{{ asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
+  <link href="{{ asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- CSS Files -->
-  <link href="{{ secure_asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet" />
+  <link href="{{ asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808046403129402" crossorigin="anonymous"></script>
 </head>
 
@@ -30,7 +30,7 @@
       </button>
       <!-- Brand -->
       <a class="navbar-brand pt-0" href="{{ route('home')}}">
-        <img src="{{ secure_asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
+        <img src="{{ asset('img/brand/blue.png')}}" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
       <ul class="nav align-items-center d-md-none">
@@ -49,7 +49,7 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="{{ secure_asset('img/theme/team-1-800x800.jpg')}}">
+                <img alt="Image placeholder" src="{{ asset('img/theme/team-1-800x800.jpg')}}">
               </span>
             </div>
           </a>
@@ -63,7 +63,7 @@
           <div class="row">
             <div class="col-6 collapse-brand">
               <a href="{{ route('home')}}">
-                <img src="{{ secure_asset('img/brand/blue.png')}}">
+                <img src="{{ asset('img/brand/blue.png')}}">
               </a>
             </div>
             <div class="col-6 collapse-close">
@@ -101,7 +101,7 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="{{ secure_asset('img/theme/team-4-800x800.jpg')}}">
+                  <img alt="Image placeholder" src="{{ asset('img/theme/team-4-800x800.jpg')}}">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name}}</span>
@@ -125,13 +125,13 @@
     </div>
   </div>
   <!--   Core   -->
-  <script src="{{ secure_asset('js/plugins/jquery/dist/jquery.min.js')}}"></script>
-  <script src="{{ secure_asset('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('js/plugins/jquery/dist/jquery.min.js')}}"></script>
+  <script src="{{ asset('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <!--   Optional JS   -->
-  <script src="{{ secure_asset('js/plugins/chart.js/dist/Chart.min.js')}}"></script>
-  <script src="{{ secure_asset('js/plugins/chart.js/dist/Chart.extension.js')}}"></script>
+  <script src="{{ asset('js/plugins/chart.js/dist/Chart.min.js')}}"></script>
+  <script src="{{ asset('js/plugins/chart.js/dist/Chart.extension.js')}}"></script>
   <!--   Argon JS   -->
-  <script src="{{ secure_asset('js/argon-dashboard.min.js?v=1.1.2')}}"></script>
+  <script src="{{ asset('js/argon-dashboard.min.js?v=1.1.2')}}"></script>
   <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
   <script>
     window.TrackJS &&

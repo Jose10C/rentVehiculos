@@ -7,18 +7,18 @@
         <i class="ni ni-single-02"></i>
         <span>Mi Perfil</span>
     </a>
-    <a href="./examples/profile.html" class="dropdown-item">
+    <!-- <a href="./examples/profile.html" class="dropdown-item">
         <i class="ni ni-settings-gear-65"></i>
         <span>Configuración</span>
     </a>
     <a href="./examples/profile.html" class="dropdown-item">
         <i class="ni ni-calendar-grid-58"></i>
         <span>Mis</span>
-    </a>
-    <a href="./examples/profile.html" class="dropdown-item">
+    </a> -->
+    <!-- <a href="./examples/profile.html" class="dropdown-item">
         <i class="ni ni-support-16"></i>
         <span>Ayuda</span>
-    </a>
+    </a> -->
     <div class="dropdown-divider"></div>
     <a class="dropdown-item" href="{{ route('logout')}}" onclick="event.preventDefault(); document.getElementById('formLogout').submit();">
         <i class="ni ni-user-run"></i>

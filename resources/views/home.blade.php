@@ -37,13 +37,13 @@
                 <div class="nav-wrapper">
                     <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-economicos-tab" data-toggle="tab" href="#tabs-icons-economicos" role="tab" aria-controls="tabs-icons-economicos" aria-selected="true"><i class="ni ni-cloud-upload-96 mr-2"></i>Económico</a>
+                            <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-economicos-tab" data-toggle="tab" href="#tabs-icons-economicos" role="tab" aria-controls="tabs-icons-economicos" aria-selected="true"><!-- <i class="ni ni-cloud-upload-96 mr-2"></i> -->Económico</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-standard-tab" data-toggle="tab" href="#tabs-icons-standard" role="tab" aria-controls="tabs-icons-standard" aria-selected="false"><i class="ni ni-bell-55 mr-2"></i>Standard</a>
+                            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-standard-tab" data-toggle="tab" href="#tabs-icons-standard" role="tab" aria-controls="tabs-icons-standard" aria-selected="false"><!-- <i class="ni ni-bell-55 mr-2"></i> -->Standard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-premium-tab" data-toggle="tab" href="#tabs-icons-premium" role="tab" aria-controls="tabs-icons-premium" aria-selected="false"><i class="ni ni-calendar-grid-58 mr-2"></i>Premium</a>
+                            <a class="nav-link mb-sm-3 mb-md-0" id="tabs-icons-premium-tab" data-toggle="tab" href="#tabs-icons-premium" role="tab" aria-controls="tabs-icons-premium" aria-selected="false"><!-- <i class="ni ni-calendar-grid-58 mr-2"></i> -->Premium</a>
                         </li>
                     </ul>
                 </div>
@@ -70,7 +70,7 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                                <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                                <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                                <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
                                             </div>
                                         </div>
                                     </div>
@@ -138,6 +138,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- modal notification -->
+<div class="modal fade" id="modal-notification-confirmacion" tabindex="-1" role="dialog" aria-labelledby="modal-notification" aria-hidden="true">
+    <div class="modal-dialog modal-danger modal-dialog-centered" role="document">
+        <div class="modal-content bg-gradient-danger">
+
+            <div class="modal-header">
+                <h6 class="modal-title" id="modal-title-notification">¿Mensaje de confirmación?</h6>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="py-3 text-center">
+                    <h4 class="heading mt-4">¿Está seguro que quiere realizar esta acción?</h4>
+                    <p></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <form action="{{ url('/home/newrenta',$vehiculo->id)}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <button type="submit" class="btn btn-white">Si, Continuar</button>
+                    <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">No, Cancelar</button>
+                </form>
             </div>
         </div>
     </div>
