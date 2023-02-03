@@ -171,10 +171,10 @@
             <div class="progress-wrapper">
                 <div class="progress-info">
                     <div class="progress-label">
-                        <span>Progreso</span>
+                        <span class="text-white">Progreso</span>
                     </div>
                     <div class="progress-percentage">
-                        <span>40%</span>
+                        <span class="text-white">40%</span>
                     </div>
                 </div>
                 <div class="progress">
