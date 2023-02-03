@@ -9,7 +9,7 @@
         <div class="col-lg-12 col-md-10">
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 style="text-align: center;">Aquí encontrarás las mejores vehículos a tu gusto</h3>
+                    <h3 style="text-align: center;">Aquí encontrarás las mejores vehículos a tu gusto.</h3>
                     <span style="text-align: center;">Aquí encontrarás los dirvesos vehiculos para alquilar y disfrutar para lo que necesites en un solo click. Todos estos disponibles para todo el Perú, haga su pedido con total seguridad y confianza.</span>
                 </div>
             </div>
