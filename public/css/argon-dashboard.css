@@ -5412,7 +5412,8 @@ input[type="button"].btn-block {
 
 .badge-danger {
   color: #f80031;
-  background-color: rgba(251, 175, 190, 0.5);
+  /* background-color: rgba(251, 175, 190, 0.5); */
+  background-color: rgb(252 0 50);
 }
 
 .badge-danger[href]:hover,
@@ -16669,7 +16670,7 @@ textarea[resize="horizontal"] {
 
 .nav-pills .nav-link {
   padding: 0.75rem 1rem;
-  color: #5e72e4;
+  color: #091428;
   font-weight: 500;
   font-size: 0.875rem;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
@@ -16678,13 +16679,15 @@ textarea[resize="horizontal"] {
 }
 
 .nav-pills .nav-link:hover {
-  color: #485fe0;
+  /* color: #485fe0; */
+  color: #000000;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
   color: #fff;
-  background-color: #5e72e4;
+  /* background-color: #5e72e4; */
+  background-color: #002bff;
 }
 
 @media (max-width: 575.98px) {

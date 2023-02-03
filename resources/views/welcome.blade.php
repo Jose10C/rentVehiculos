@@ -7,13 +7,47 @@
 <div class="container mt--8 pb-5">
     <div class="row justify-content-center">
         <div class="col-lg-12 col-md-10">
-            <div class="card shadow">
+            <div class="card shadow card-primary">
                 <div class="card-body">
                     <h3 style="text-align: center;">Aquí encontrarás las mejores vehículos a tu gusto</h3>
                     <span style="text-align: center;">Aquí encontrarás los dirvesos vehiculos para alquilar y disfrutar para lo que necesites en un solo click. Todos estos disponibles para todo el Perú, haga su pedido con total seguridad y confianza.</span>
                 </div>
             </div>
-            <!-- nav -->
+            <!-- carrusel incio -->
+            <br>
+            <div class="card shadow">
+                <div class="row justify-content-md-center">
+                    <div class="col col-lg-6">
+                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="{{asset('img/theme/profile-cover.jpg')}}" alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{asset('img/theme/team-1-800x800.jpg')}}" alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                    <img class="d-block w-100" src="{{asset('img/theme/team-3-800x800.jpg')}}" alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Anterior</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Siguiente</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- carrusel fin -->
             <div class="nav-wrapper">
                 <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                     <li class="nav-item">
@@ -38,11 +72,17 @@
                                 @foreach ($v_vehiculos as $vehiculo)
                                 @if ($vehiculo->clasifica == 1 && $vehiculo->status == 1)
                                 <div class="col-sm-4">
-                                    <div class="card" style="width: 18rem;">
+                                    <div class="card" style="width: 18rem; background-color: #2dce891f;">
                                         <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                         <div class="card-body">
-                                            <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
-                                            <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
+                                            <div class="text-center">
+                                                <span class="badge badge-pill badge-danger text-white text-h1">{{$vehiculo->nombre}}</span>
+                                            </div>
+                                            <!-- <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5> -->
+                                            <div class="text-default text-center">
+                                                <h2>Oferta!! s/. {{$vehiculo->precio_d}}.00</h2>
+                                            </div>
+                                            <!-- <h5>Categoría:<span class="badge badge-lg badge-info text-default">{{$vehiculo->categories->model}}</span></h5> -->
                                             <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo->anio}} - {{$vehiculo->marca}}</h5>
                                             <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo->nro_asientos}}</h5>
                                             <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo->clasifica == 1) Económico @elseif ($vehiculo->clasifica == 2) Standart @else Premium @endif</h5>
@@ -50,8 +90,7 @@
                                             <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                            <!--  <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent-">Reservar Ahora</button></center> -->
-                                            <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
+                                            <center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
                                             <!-- <a href="{{ url('login')}}"class="btn btn-success">Reservar Ahora</a> -->
                                         </div>
                                     </div>
@@ -67,11 +106,15 @@
                                 @foreach ($v_vehiculos as $vehiculo )
                                 @if ($vehiculo->clasifica == 2 && $vehiculo->status == 1)
                                 <div class="col-sm-4">
-                                    <div class="card" style="width: 18rem;">
+                                    <div class="card" style="width: 18rem; background-color: #2dce891f;">
                                         <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                         <div class="card-body">
-                                            <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
-                                            <h5>Categoría:<span class="badge badge-lg badge-info">{{$vehiculo->categories->model}}</span></h5>
+                                            <div class="text-center">
+                                                <span class="badge badge-pill badge-danger text-default text-h1">{{$vehiculo->nombre}}</span>
+                                            </div>
+                                            <div class="text-default text-center">
+                                                <h2>Oferta!! s/. {{$vehiculo->precio_d}}.00</h2>
+                                            </div>
                                             <h5><i class="ni ni-calendar-grid-58"></i> Año de Fabricación: {{$vehiculo->anio}} - {{$vehiculo->marca}}</h5>
                                             <h5><i class="ni ni-bus-front-12"></i> N° Asientos: {{$vehiculo->nro_asientos}}</h5>
                                             <h5><i class="ni ni-delivery-fast"></i> Tipo: @if ($vehiculo->clasifica == 1) Económico @elseif ($vehiculo->clasifica == 2) Standart @else Premium @endif</h5>
@@ -80,7 +123,7 @@
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
                                             <!-- <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent">Reservar Ahora</button></center> -->
-                                            <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
+                                            <center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
                                         </div>
                                     </div>
                                 </div>
@@ -95,7 +138,7 @@
                                 @foreach ($v_vehiculos as $vehiculo)
                                 @if ($vehiculo->clasifica == 3 && $vehiculo->status == 1)
                                 <div class="col-sm-4">
-                                    <div class="card" style="width: 18rem;">
+                                    <div class="card" style="width: 18rem; background-color: #2dce891f;">
                                         <img class="card-img-top" src="{{$vehiculo->foto_r}}" alt="img-vehiculo-{{$vehiculo->id}}">
                                         <div class="card-body">
                                             <h5 style="text-transform: uppercase; text-align: center;">{{$vehiculo->nombre}}</h5>
@@ -108,7 +151,7 @@
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
                                             <!-- <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRen">Reservar Ahora</button></center> -->
-                                            <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
+                                            <center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
                                         </div>
                                     </div>
                                 </div>
