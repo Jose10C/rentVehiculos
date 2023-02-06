@@ -90,6 +90,7 @@
                                             <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
+                                            
                                             <div style="text-align: center;">
                                                 <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button>
                                             </div>
