@@ -70,7 +70,7 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                                <div style="text-align: center;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></div>
                                             </div>
                                         </div>
                                     </div>
@@ -98,7 +98,7 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                                <div style="text-align: center;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></div style="text-align: center;">
                                             </div>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@
                                                 <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                                 <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                                 <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                                <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></center>
+                                                <div style="text-align: center;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#usernewRent-{{$vehiculo->id}}">Reservar Ahora</button></div>
                                             </div>
                                         </div>
                                     </div>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
     {{ config('app.name')}}
@@ -11,13 +11,13 @@
   <link href="{{ secure_asset('img/brand/favicon.png')}}" rel="icon" type="image/png" alt="cabexera">
 
   <!-- Icons -->
-  <link href="{{ secure_asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet" />
-  <link href="{{ secure_asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet" />
+  <link href="{{ secure_asset('js/plugins/@fortawesome/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
+  <link href="{{ secure_asset('js/plugins/nucleo/css/nucleo.css')}}" rel="stylesheet">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <!-- CSS Files -->
-  <link href="{{ secure_asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet" />
+  <link href="{{ secure_asset('css/argon-dashboard.css?v=1.1.2')}}" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2808046403129402" crossorigin="anonymous"></script>
 </head>
 
@@ -25,7 +25,7 @@
   <nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
       <!-- Toggler -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" id="id-navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="id-navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->

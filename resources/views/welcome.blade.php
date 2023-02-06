@@ -90,8 +90,10 @@
                                             <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                            <center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
-                                            <!-- <a href="{{ url('login')}}"class="btn btn-success">Reservar Ahora</a> -->
+                                            <div style="text-align: center;">
+                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -122,8 +124,9 @@
                                             <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                            <!-- <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRent">Reservar Ahora</button></center> -->
-                                            <center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
+                                            <div style="text-align: center;">
+                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -154,8 +157,9 @@
                                             <h5><i class="ni ni-atom"></i> Aire Acondicionado: {{$vehiculo->aire_acondicionado}}</h5>
                                             <h5><i class="ni ni-settings"></i> Auto: {{$vehiculo->tipo}}</h5>
                                             <h5><i class="ni ni-money-coins"></i> Precio: s/. {{$vehiculo->precio_d}} (x días)</h5>
-                                            <!-- <center><button type="button" class="btn btn-success" data-toggle="modal" data-target="#newRen">Reservar Ahora</button></center> -->
-                                            <center><button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button></center>
+                                            <div style="text-align: center;">
+                                                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#newrent-modal">Reservar Ahora</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +192,7 @@
 </div>
 
 <!-- inicio modal login -->
-<div class="modal fade" id="newrent-modal" tabindex="-1" role="dialog" aria-labelledby="newrent-modalLabel" aria-hidden="true">
+<div class="modal fade" id="newrent-modal" tabindex="-1" role="dialog" aria-labelledby="newrent-modal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -215,7 +219,7 @@
                                         <small>Ingrese sus Credinciales</small>
                                     </div>
                                     @endif
-                                    <form role="form" method="POST" action="{{ route('login') }}">
+                                    <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="form-group mb-3">
                                             <div class="input-group input-group-alternative">
@@ -234,8 +238,8 @@
                                             </div>
                                         </div>
                                         <div class="custom-control custom-control-alternative custom-checkbox">
-                                            <input class="custom-control-input" name="remember" id=" remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                                            <label class="custom-control-label" for=" remember">
+                                            <input class="custom-control-input" name="remember" id="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
+                                            <label class="custom-control-label" for="remember">
                                                 <span class="text-muted">Recordarme</span>
                                             </label>
                                         </div>
