@@ -23,7 +23,7 @@
                             <small>Ingresa tus Datos</small>
                         </div>
                     @endif
-                    <form role="form" method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group">
                             <div class="input-group input-group-alternative mb-3">
