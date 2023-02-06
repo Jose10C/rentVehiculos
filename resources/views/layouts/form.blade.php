@@ -39,7 +39,7 @@
                 </a>
               </div>
               <div class="col-6 collapse-close">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                <button type="button" class="navbar-toggler" id="id-sidenav-main-public" data-toggle="collapse" data-target="#navbar-collapse-main" aria-controls="id-sidenav-main-public" aria-expanded="false" aria-label="Toggle sidenav">
                   <span></span>
                   <span></span>
                 </button>

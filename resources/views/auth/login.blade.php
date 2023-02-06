@@ -21,7 +21,7 @@
                             <small>Ingrese sus Credinciales</small>
                         </div>
                     @endif
-                    <form role="form" method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="form-group mb-3">
                             <div class="input-group input-group-alternative">
@@ -40,8 +40,8 @@
                             </div>
                         </div>
                         <div class="custom-control custom-control-alternative custom-checkbox">
-                            <input class="custom-control-input" name="remember" id=" remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="custom-control-label" for=" remember">
+                            <input class="custom-control-input" name="remember" id="remember" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="remember">
                                 <span class="text-muted">Recordarme</span>
                             </label>
                         </div>
