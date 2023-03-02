@@ -64,7 +64,7 @@ class ViewController extends Controller
             $u_vehiculo->save();
 
             $v_precio = Vehicle::find($id_veh);
-            $alquiler->a_precio = floatval($v_precio->precio_d) * floatval($dias);
+            $alquiler->a_precio = floatval($v_precio->precio_d)*floatval($dias);
 
             $alquiler->status = 1;
             $alquiler->vehicles_id = $id_veh;

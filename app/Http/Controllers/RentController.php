@@ -38,6 +38,14 @@ class RentController extends Controller
         $alquiler = new Rent();
         $alquiler->a_inicio = $request->input('a_inicio');
         $alquiler->a_fin = $request->input('a_fin');
+
+        $date1 = new DateTime($alquiler->a_inicio);
+        $date2 = new DateTime($alquiler->a_fin);
+        $diff = $date1->diff($date2);
+        // will output 2 days
+        echo $diff->days . ' days ';
+        var_dump($date1);
+
         $alquiler->a_precio = $request->input('a_precio');
         $alquiler->status = $request->input('status');
         $alquiler->clients_id = $request->input('clients_id');
